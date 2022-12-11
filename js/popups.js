@@ -6,7 +6,7 @@ function openInfo(id) {
   let i = id.match("[0-9]+");
   document.getElementById('info-modal-title').innerText = titles[i]
   document.getElementById('info-modal-desc').innerHTML = details[i]
-  document.getElementById('info-modal-img').src = secondaryImages[i];
+  document.getElementById('info-modal-img').src = secondaryImages[i]
   document.querySelector("#info-modal > div > div > div.modal-footer > button.btn.btn-primary").id = "info-modal-submit-bid-btn-" + i
   infoModal.show()
 }
@@ -35,9 +35,9 @@ function newUserLogin() {
   loggedIn = auth.currentUser && auth.currentUser.displayName
   if (!loggedIn) {
     let username = document.getElementById('username-input').value
-    console.log(username);
+    console.log(username)
     
-    let user = auth.currentUser;
+    let user = auth.currentUser
     updateProfile(user, { displayName: username })
 
     db.collection("users").doc(user.uid).set({ name: username, admin: false })
