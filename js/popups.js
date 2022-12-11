@@ -38,7 +38,7 @@ function newUserLogin() {
     console.log(username)
     
     let user = auth.currentUser
-    updateProfile(user, { displayName: username })
+    user.updateProfile({ displayName: username },)
 
     db.collection("users").doc(user.uid).set({ name: username, admin: false })
     loginModal.hide()
