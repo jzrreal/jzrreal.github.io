@@ -1,5 +1,5 @@
 // For a real auction, set this to false
-let demoAuction = false;
+let demoAuction = true;
 // For a real auction, populate these arrays
 let primaryImages = [];
 let titles = [];
