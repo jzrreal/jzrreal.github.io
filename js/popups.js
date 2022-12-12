@@ -37,7 +37,7 @@ function newUserLogin() {
     let username = document.getElementById('username-input').value
     console.log(username)
     
-    let user = auth.currentUser
+    let user = auth.currentUser;
     user.updateProfile({ displayName: username },)
 
     db.collection("users").doc(user.uid).set({ name: username, admin: false })

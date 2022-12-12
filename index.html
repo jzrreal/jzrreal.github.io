@@ -34,16 +34,24 @@
   <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js"></script>
 
-  <script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
     // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     const firebaseConfig = {
-        apiKey: "AIzaSyAQda-TC7FLIfGKIChmMq1C6QLeksDZhuo",
-        authDomain: "skt-auction.firebaseapp.com",
-        projectId: "skt-auction",
-        storageBucket: "skt-auction.appspot.com",
-        messagingSenderId: "671337296877",
-        appId: "1:671337296877:web:e3a248774e18334e5a6de4",
-        measurementId: "G-2WPW4VQGR4"
+      apiKey: "AIzaSyAQda-TC7FLIfGKIChmMq1C6QLeksDZhuo",
+      authDomain: "skt-auction.firebaseapp.com",
+      databaseURL: "https://skt-auction-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "skt-auction",
+      storageBucket: "skt-auction.appspot.com",
+      messagingSenderId: "671337296877",
+      appId: "1:671337296877:web:e3a248774e18334e5a6de4",
+      measurementId: "G-2WPW4VQGR4"
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
