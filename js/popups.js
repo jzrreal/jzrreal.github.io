@@ -48,6 +48,7 @@ function autoLogin() {
   auth.onAuthStateChanged(function (user) {
     if (user && user.displayName != null) {
       replaceSignupButton(user.displayName);
+      console.log(user.uid);
     } else {
       auth.signInAnonymously();
     }
