@@ -200,7 +200,7 @@ function placeBid() {
         }, 1000);
       } else {
         amountElement.classList.add("is-invalid")
-        feedback.innerText = "You must bid at least £" + (currentBid + 1).toFixed(2) + "!"
+        feedback.innerText = "You must bid at least " + (currentBid + 1).toFixed(2) + " ETH!"
         modalBidButton.removeAttribute('disabled', '');
       }
     });
@@ -259,7 +259,7 @@ function generateAuctionCard(i) {
   bidRow.appendChild(bidTitle);
 
   let bid = document.createElement("td");
-  bid.innerHTML = "£-.-- [- bids]"
+  bid.innerHTML = "ETH-.-- [- bids]"
   bid.id = "current-bid-" + i
   bidRow.appendChild(bid);
 
@@ -332,7 +332,7 @@ function dataListener() {
         let userWinning = bids["bid" + bidCount + "-user"] == auth.currentUser.uid
       }
       // Add bid data to HTML
-      cb.innerHTML = "£" + numberWithCommas(currPound) + " [" + bidCount + " bid" + (bidCount != 1 ? "s" : "") + "]"
+      cb.innerHTML = "ETH " + numberWithCommas(currPound) + " [" + bidCount + " bid" + (bidCount != 1 ? "s" : "") + "]"
     }
   })
 }
