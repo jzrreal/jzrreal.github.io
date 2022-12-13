@@ -2,39 +2,39 @@
 let demoAuction = false;
 // For a real auction, populate these arrays
 let primaryImages = [
-  "./saleList/apple.webp",
-  "./saleList/banana.jpg",
-  "./saleList/pear.jpg"
+  "./saleList/apple.webp", // 1
+  "./saleList/banana.jpg", // 2
+  "./saleList/pear.jpg" // 3
 ];
 let titles = [
-  "Apple",
-  "Banana",
-  "Pear"
+  "Apple", // 1
+  "Banana", // 2
+  "Pear" // 3
 ];
 let subtitles = [
-  "merah",
-  "kuning",
-  "ijo"
+  "merah", // 1
+  "kuning", // 2
+  "ijo" // 3
 ];
 let details = [
-  "buah merah",
-  "buah kuning",
-  "buah ijo"
+  "buah merah", // 1
+  "buah kuning", // 2
+  "buah ijo" // 3
 ];
 let secondaryImages = [
-  "./saleList/apple.webp",
-  "./saleList/banana.jpg",
-  "./saleList/pear.jpg"
+  "./saleList/apple.webp", // 1
+  "./saleList/banana.jpg", // 2
+  "./saleList/pear.jpg" // 3
 ];
 let startingPrices = [
-  5,
-  10,
-  15
+  5, // 1
+  10, // 2
+  15 // 3
 ];
 let endTimes = [
-  1670950799000,
-  1670950799000,
-  1670950799000
+  1670921999000, // 1 
+  1670921999000, // 2
+  1670921999000 // 3
 ]; // Make sure to fix these to UTC time so they don't change with the users timezone
 
 // Random auction information
