@@ -26,7 +26,11 @@ let secondaryImages = [
   "./saleList/banana.jpg",
   "./saleList/pear.jpg"
 ];
-let startingPrices = [55, 60, 20, 0, 4, 0, 99, 0, 12, 6, 3, 7];
+let startingPrices = [
+  5,
+  10,
+  15
+];
 let endTimes = [
   1670950799000,
   1670950799000,
