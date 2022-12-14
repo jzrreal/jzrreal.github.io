@@ -2,9 +2,9 @@
 let demoAuction = false;
 // For a real auction, populate these arrays
 let primaryImages = [
-  "./saleList/apple.webp", // 1
-  "./saleList/banana.jpg", // 2
-  "./saleList/pear.jpg" // 3
+  "./saleList/12-14-2022/apple.webp", // 1
+  "./saleList/12-14-2022/banana.jpg", // 2
+  "./saleList/12-14-2022/pear.jpg" // 3
 ];
 let titles = [
   "Apple", // 1

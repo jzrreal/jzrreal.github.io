@@ -57,7 +57,10 @@
         <img src="./img/logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
         SKT Auction
       </a>
-      <a class="navbar-brand" id="username-display"></a>
+
+      <!-- <a class="navbar-brand" id="username-display"></a> -->
+
+      <button id="username-display" class="btn btn-secondary" type="submit" onclick="openWonItemsList()"></button>
       <button id="signup-button" class="btn btn-secondary" type="submit" onclick="openLogin()">Sign up</button>
     </div>
   </nav>
@@ -148,6 +151,21 @@
         </div>
       </div>
     </div>
+  </div>
+  <!-- Won auction items popup -->
+  <div id="won-auction-container" class="modal" tabindex="-1">
+    <div id="won-auction-grid" class="row row-cols-1 row-cols-md-3 g-4"></div>
+
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <span class="text-muted">© 2022 Jezriel Willy</span>
+      </div>
+
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="bi bi-github text-muted" href="https://github.com/HMellor/" width="24"
+            height="24"></a></li>
+      </ul>
+    </footer>
   </div>
   
   </script>

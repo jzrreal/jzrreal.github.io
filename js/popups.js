@@ -26,6 +26,10 @@ function openBid(id) {
   }
 }
 
+function openWonItemsList() {
+
+}
+
 function openLogin() {
   loggedIn = auth.currentUser && auth.currentUser.displayName;
   if (!loggedIn) { loginModal.show(); document.getElementById('username-input').focus(); }
@@ -40,14 +44,14 @@ function newUserLogin() {
     user.updateProfile({ displayName: username });
     db.collection("users").doc(user.uid).set({ name: username, admin: false });
     loginModal.hide();
-    replaceSignupButton(username);
+    replaceSignupButton(username + ", click to see won items");
   }
 }
 
 function autoLogin() {
   auth.onAuthStateChanged(function (user) {
     if (user && user.displayName != null) {
-      replaceSignupButton(user.displayName);
+      replaceSignupButton(user.displayName + ", click to see won items");
       console.log(user.uid);
     } else {
       auth.signInAnonymously();
