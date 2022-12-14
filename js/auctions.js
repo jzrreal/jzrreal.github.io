@@ -397,6 +397,7 @@ function populateWonItemsListGrid() {
   wonItemsListGrid = document.getElementById("won-items-list-grid");
   let endingSoonest = argsort(endTimes);
   endingSoonest.forEach((i) => {
+
     wonItemsListCard = generateWonItemsListCard(i);
     wonItemsListGrid.appendChild(wonItemsListCard);
   });
