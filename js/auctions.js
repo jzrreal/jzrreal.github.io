@@ -32,9 +32,9 @@ let startingPrices = [
   15 // 3
 ];
 let endTimes = [
-  1670921999000, // 1 
-  1670921999000, // 2
-  1670921999000 // 3
+  1671019200000, // 1 
+  1671019200000, // 2
+  1671019200000 // 3
 ]; // Make sure to fix these to UTC time so they don't change with the users timezone
 
 // Random auction information
