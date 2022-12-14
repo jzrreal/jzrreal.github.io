@@ -1,6 +1,7 @@
 loginModal = new bootstrap.Modal(document.getElementById('login-modal'));
 infoModal = new bootstrap.Modal(document.getElementById('info-modal'));
 bidModal = new bootstrap.Modal(document.getElementById('bid-modal'));
+wonItemListModal = new bootstrap.Modal(document.getElementById('won-items-list-modal'));
 
 function openInfo(id) {
   let i = id.match("[0-9]+");
@@ -26,6 +27,11 @@ function openBid(id) {
   }
 }
 
+function openWonItemsList() {
+  wonItemListModal.show();
+  populateWonItemsListGrid(1);
+}
+
 function openLogin() {
   loggedIn = auth.currentUser && auth.currentUser.displayName;
   if (!loggedIn) { loginModal.show(); document.getElementById('username-input').focus(); }
@@ -40,14 +46,14 @@ function newUserLogin() {
     user.updateProfile({ displayName: username });
     db.collection("users").doc(user.uid).set({ name: username, admin: false });
     loginModal.hide();
-    replaceSignupButton(username);
+    replaceSignupButton(username + ", click to see won items");
   }
 }
 
 function autoLogin() {
   auth.onAuthStateChanged(function (user) {
     if (user && user.displayName != null) {
-      replaceSignupButton(user.displayName);
+      replaceSignupButton(user.displayName + ", click to see won items");
       console.log(user.uid);
     } else {
       auth.signInAnonymously();

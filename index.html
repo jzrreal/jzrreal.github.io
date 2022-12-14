@@ -57,7 +57,10 @@
         <img src="./img/logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
         SKT Auction
       </a>
-      <a class="navbar-brand" id="username-display"></a>
+
+      <!-- <a class="navbar-brand" id="username-display"></a> -->
+
+      <button id="username-display" class="btn btn-secondary" type="submit" onclick="openWonItemsList()"></button>
       <button id="signup-button" class="btn btn-secondary" type="submit" onclick="openLogin()">Sign up</button>
     </div>
   </nav>
@@ -71,7 +74,7 @@
       </div>
 
       <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-        <li class="ms-3"><a class="bi bi-github text-muted" href="https://github.com/HMellor/" width="24"
+        <li class="ms-3"><a class="bi bi-github text-muted" href="https://github.com/jzrreal/" width="24"
             height="24"></a></li>
       </ul>
     </footer>
@@ -132,7 +135,7 @@
         </div>
         <div class="modal-body">
           <p>You are about to place a bid on <strong id="bid-modal-subtitle"></strong></p>
-          <p class="text-muted">(This is just a demo, you're not bidding real money)</p>
+          <p class="text-muted">Won bids are saved on debt page</p>
           <form onsubmit="return false;">
             <div class="form-floating mb-3">
               <input type="amount" class="form-control" id="amount-input" placeholder="amount"
@@ -145,6 +148,27 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Cancel">Cancel</button>
           <button type="submit" class="btn btn-primary" onclick="placeBid()">Submit bid</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Won auction items popup -->
+  <div id="won-items-list-modal" class="modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 id="won-items-list-modal-title" class="modal-title">Won Items List</h5>
+        </div>
+
+        <div id="won-items-list-container" class="container">
+
+          <div id="won-items-list-grid" class="row row-cols-1 row-cols-md-3 g-4"></div>
+      
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Cancel" >Cancel</button>
+          <button type="submit" class="btn btn-primary">Check Out</button>
         </div>
       </div>
     </div>
