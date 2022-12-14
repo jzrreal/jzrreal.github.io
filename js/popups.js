@@ -1,6 +1,7 @@
 loginModal = new bootstrap.Modal(document.getElementById('login-modal'));
 infoModal = new bootstrap.Modal(document.getElementById('info-modal'));
 bidModal = new bootstrap.Modal(document.getElementById('bid-modal'));
+wonItemListModal = new bootstrap.Modal(document.getElementById('won-items-list-modal'));
 
 function openInfo(id) {
   let i = id.match("[0-9]+");
@@ -27,7 +28,7 @@ function openBid(id) {
 }
 
 function openWonItemsList() {
-
+  wonItemListModal.show();
 }
 
 function openLogin() {
