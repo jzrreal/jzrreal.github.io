@@ -313,6 +313,7 @@ function populateAuctionGrid() {
 }
 
 function generateWonItemsListCard(i) {
+
   // create won items list card
   let col = document.createElement("div");
   col.classList.add("col");
@@ -320,7 +321,7 @@ function generateWonItemsListCard(i) {
   let card = document.createElement("div");
   card.classList.add("card");
   card.id = "auction-" + i
-  col.appendChild(card);s
+  col.appendChild(card);
 
   let image = document.createElement("img");
   image.classList.add("card-img-top");
@@ -366,7 +367,7 @@ function generateWonItemsListCard(i) {
   tableBody.appendChild(timeRow);
 
   let timeTitle = document.createElement("th");
-  timeTitle.innerHTML = "Time left:"
+  timeTitle.innerHTML = "Pay before:"
   timeTitle.scope = "row";
   timeRow.appendChild(timeTitle);
 
@@ -399,9 +400,7 @@ function populateWonItemsListGrid() {
     wonItemsListCard = generateWonItemsListCard(i);
     wonItemsListGrid.appendChild(wonItemsListCard);
   });
-  if (demoAuction) { generateRandomAuctions() };
 }
-
 
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

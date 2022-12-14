@@ -29,6 +29,7 @@ function openBid(id) {
 
 function openWonItemsList() {
   wonItemListModal.show();
+  populateWonItemsListGrid(1);
 }
 
 function openLogin() {
