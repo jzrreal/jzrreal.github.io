@@ -22,9 +22,9 @@ let details = [
   "buah ijo" // 3
 ];
 let secondaryImages = [
-  "./saleList/apple.webp", // 1
-  "./saleList/banana.jpg", // 2
-  "./saleList/pear.jpg" // 3
+  "./saleList/12-14-2022/apple.webp", // 1
+  "./saleList/12-14-2022/banana.jpg", // 2
+  "./saleList/12-14-2022/pear.jpg" // 3
 ];
 let startingPrices = [
   5, // 1
@@ -301,7 +301,7 @@ function generateAuctionCard(i) {
   return col
 }
 
-// Generatively populate the websire with auctions
+// Generatively populate the website with auctions
 function populateAuctionGrid() {
   auctionGrid = document.getElementById("auction-grid");
   let endingSoonest = argsort(endTimes);
@@ -311,6 +311,106 @@ function populateAuctionGrid() {
   });
   if (demoAuction) { generateRandomAuctions() };
 }
+
+function generateWonItemsListCard(i) {
+  // create won items list card
+  let col = document.createElement("div");
+  col.classList.add("col");
+
+  let card = document.createElement("div");
+  card.classList.add("card");
+  card.id = "auction-" + i
+  col.appendChild(card);s
+
+  let image = document.createElement("img");
+  image.classList.add("card-img-top");
+  image.src = primaryImages[i];
+  card.appendChild(image);
+
+  let body = document.createElement("div");
+  body.classList.add("card-body");
+  card.appendChild(body);
+
+  let title = document.createElement("h5");
+  title.classList.add("title");
+  title.innerText = titles[i];
+  body.appendChild(title);
+
+  let subtitle = document.createElement("p");
+  subtitle.classList.add("card-subtitle");
+  subtitle.innerText = subtitles[i];
+  body.appendChild(subtitle);
+
+  // Auction status
+  let statusTable = document.createElement("table");
+  statusTable.classList.add("table");
+  card.appendChild(statusTable);
+
+  let tableBody = document.createElement("tbody");
+  statusTable.appendChild(tableBody);
+
+  let bidRow = document.createElement("tr");
+  tableBody.appendChild(bidRow);
+
+  let bidTitle = document.createElement("th");
+  bidTitle.innerHTML = "Current bid:"
+  bidTitle.scope = "row";
+  bidRow.appendChild(bidTitle);
+
+  let bid = document.createElement("td");
+  bid.innerHTML = "ETH-.-- [- bids]"
+  bid.id = "current-bid-" + i
+  bidRow.appendChild(bid);
+
+  let timeRow = document.createElement("tr");
+  tableBody.appendChild(timeRow);
+
+  let timeTitle = document.createElement("th");
+  timeTitle.innerHTML = "Time left:"
+  timeTitle.scope = "row";
+  timeRow.appendChild(timeTitle);
+
+  let time = document.createElement("td");
+  time.id = "time-left-" + i
+  timeRow.appendChild(time);
+
+  // Auction actions
+  let buttonGroup = document.createElement("div");
+  buttonGroup.classList.add("btn-group");
+  card.appendChild(buttonGroup)
+
+  let infoButton = document.createElement("button");
+  infoButton.type = "button"
+  infoButton.href = "#";
+  infoButton.classList.add("btn", "btn-secondary")
+  infoButton.innerText = "Info";
+  infoButton.onclick = function () { openInfo(this.id); }
+  infoButton.id = "info-button-" + i
+  buttonGroup.appendChild(infoButton);
+
+  let bidButton = document.createElement("button");
+  bidButton.type = "button"
+  bidButton.href = "#";
+  bidButton.classList.add("btn", "btn-primary")
+  bidButton.innerText = "Submit bid";
+  bidButton.onclick = function () { openBid(this.id); }
+  bidButton.id = "bid-button-" + i
+  buttonGroup.appendChild(bidButton);
+
+  return col
+}
+
+// Generatively populate the won items list with won items
+function populateWonItemsListGrid() {
+  wonItemsListGrid = document.getElementById("won-items-list-grid");
+  let endingSoonest = argsort(endTimes);
+  endingSoonest.forEach((i) => {
+    wonItemsListCard = generateWonItemsListCard(i);
+    wonItemsListGrid.appendChild(wonItemsListCard);
+  });
+  if (demoAuction) { generateRandomAuctions() };
+}
+
 
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
