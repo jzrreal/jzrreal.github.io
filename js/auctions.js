@@ -32,9 +32,9 @@ let startingPrices = [
   15 // 3
 ];
 let endTimes = [
-  1671026400000, // 1 
-  1671026400000, // 2
-  1671026400000 // 3
+  1671033600000, // 1 
+  1671033600000, // 2
+  1671033600000 // 3
 ]; // Make sure to fix these to UTC time so they don't change with the users timezone
 
 // Random auction information
@@ -379,23 +379,14 @@ function generateWonItemsListCard(i) {
   buttonGroup.classList.add("btn-group");
   card.appendChild(buttonGroup)
 
-  let infoButton = document.createElement("button");
-  infoButton.type = "button"
-  infoButton.href = "#";
-  infoButton.classList.add("btn", "btn-secondary")
-  infoButton.innerText = "Info";
-  infoButton.onclick = function () { openInfo(this.id); }
-  infoButton.id = "info-button-" + i
-  buttonGroup.appendChild(infoButton);
-
-  let bidButton = document.createElement("button");
-  bidButton.type = "button"
-  bidButton.href = "#";
-  bidButton.classList.add("btn", "btn-primary")
-  bidButton.innerText = "Submit bid";
-  bidButton.onclick = function () { openBid(this.id); }
-  bidButton.id = "bid-button-" + i
-  buttonGroup.appendChild(bidButton);
+  let checkOutButton = document.createElement("button");
+  checkOutButton.type = "button"
+  checkOutButton.href = "#";
+  checkOutButton.classList.add("btn", "btn-secondary")
+  checkOutButton.innerText = "Check Out";
+  checkOutButton.onclick = function () { openInfo(this.id); }
+  checkOutButton.id = "checkOut-button-" + i
+  buttonGroup.appendChild(checkOutButton);
 
   return col
 }
@@ -430,6 +421,7 @@ function dataListener() {
       // Check if the user is winning
       if (auth.currentUser) {
         let userWinning = bids["bid" + bidCount + "-user"] == auth.currentUser.uid
+        console.log(userWinning);
       }
       // Add bid data to HTML
       cb.innerHTML = "ETH " + numberWithCommas(currPound) + " [" + bidCount + " bid" + (bidCount != 1 ? "s" : "") + "]"
