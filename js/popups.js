@@ -28,8 +28,7 @@ function openBid(id) {
 }
 
 function openWonItemsList() {
-  wonItemListModal.show();
-  populateWonItemsListGrid(1);
+  location.replace("./auction/checkoutPopup.html")
 }
 
 function openLogin() {
