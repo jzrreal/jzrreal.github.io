@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
- <link rel="stylesheet" href="./css/checkoutPopup.css">
+ <link rel="stylesheet" href="../css/checkout.css">
 
 <html>
 <head>
@@ -8,6 +8,24 @@
   <meta name="viewport" content="width=device-width">
 </head>
 <body>
+  <script>
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAQda-TC7FLIfGKIChmMq1C6QLeksDZhuo",
+      authDomain: "skt-auction.firebaseapp.com",
+      databaseURL: "https://skt-auction-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "skt-auction",
+      storageBucket: "skt-auction.appspot.com",
+      messagingSenderId: "671337296877",
+      appId: "1:671337296877:web:e3a248774e18334e5a6de4"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+    var auth = firebase.auth();
+  </script>
+
+
  <div id="payment-popup" class="checkout" tabindex="-1">
         <div class="modal-header">
           <h5 id="payment-title" class="payment-title">Checkout Pop-up</h5>
@@ -44,4 +62,7 @@
           </form>
   </div>
 </body>
+
+<script src="../js/auctions.js"></script>
+
 </html>

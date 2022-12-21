@@ -32,9 +32,9 @@ let startingPrices = [
   15 // 3
 ];
 let endTimes = [
-  1671296399000, // 1 
-  1671296399000, // 2
-  1671296399000 // 3
+  1671728399000, // 1 
+  1671728399000, // 2
+  1671728399000 // 3
 ]; // Make sure to fix these to UTC time so they don't change with the users timezone
 
 // Random auction information
@@ -312,95 +312,8 @@ function populateAuctionGrid() {
   if (demoAuction) { generateRandomAuctions() };
 }
 
-function generateWonItemsListCard(i) {
-
-  // create won items list card
-  let col = document.createElement("div");
-  col.classList.add("col");
-
-  let card = document.createElement("div");
-  card.classList.add("card");
-  card.id = "auction-" + i
-  col.appendChild(card);
-
-  let image = document.createElement("img");
-  image.classList.add("card-img-top");
-  image.src = primaryImages[i];
-  card.appendChild(image);
-
-  let body = document.createElement("div");
-  body.classList.add("card-body");
-  card.appendChild(body);
-
-  let title = document.createElement("h5");
-  title.classList.add("title");
-  title.innerText = titles[i];
-  body.appendChild(title);
-
-  let subtitle = document.createElement("p");
-  subtitle.classList.add("card-subtitle");
-  subtitle.innerText = subtitles[i];
-  body.appendChild(subtitle);
-
-  // Auction status
-  let statusTable = document.createElement("table");
-  statusTable.classList.add("table");
-  card.appendChild(statusTable);
-
-  let tableBody = document.createElement("tbody");
-  statusTable.appendChild(tableBody);
-
-  let bidRow = document.createElement("tr");
-  tableBody.appendChild(bidRow);
-
-  let bidTitle = document.createElement("th");
-  bidTitle.innerHTML = "Current bid:"
-  bidTitle.scope = "row";
-  bidRow.appendChild(bidTitle);
-
-  let bid = document.createElement("td");
-  bid.innerHTML = "ETH-.-- [- bids]"
-  bid.id = "current-bid-" + i
-  bidRow.appendChild(bid);
-
-  let timeRow = document.createElement("tr");
-  tableBody.appendChild(timeRow);
-
-  let timeTitle = document.createElement("th");
-  timeTitle.innerHTML = "Pay before:"
-  timeTitle.scope = "row";
-  timeRow.appendChild(timeTitle);
-
-  let time = document.createElement("td");
-  time.id = "time-left-" + i
-  timeRow.appendChild(time);
-
-  // Auction actions
-  let buttonGroup = document.createElement("div");
-  buttonGroup.classList.add("btn-group");
-  card.appendChild(buttonGroup)
-
-  let checkOutButton = document.createElement("button");
-  checkOutButton.type = "button"
-  checkOutButton.href = "#";
-  checkOutButton.classList.add("btn", "btn-secondary")
-  checkOutButton.innerText = "Check Out";
-  checkOutButton.onclick = function () { openInfo(this.id); }
-  checkOutButton.id = "checkOut-button-" + i
-  buttonGroup.appendChild(checkOutButton);
-
-  return col
-}
-
-// Generatively populate the won items list with won items
-function populateWonItemsListGrid() {
-  wonItemsListGrid = document.getElementById("won-items-list-grid");
-  let endingSoonest = argsort(endTimes);
-  endingSoonest.forEach((i) => {
-
-    wonItemsListCard = generateWonItemsListCard(i);
-    wonItemsListGrid.appendChild(wonItemsListCard);
-  });
+function saveWonItems() {
+  
 }
 
 function numberWithCommas(x) {
