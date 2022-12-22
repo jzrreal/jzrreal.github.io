@@ -27,10 +27,6 @@ function openBid(id) {
   }
 }
 
-function openWonItemsList() {
-  location.replace("./auction/checkoutPopup.html")
-}
-
 function openLogin() {
   loggedIn = auth.currentUser && auth.currentUser.displayName;
   if (!loggedIn) { loginModal.show(); document.getElementById('username-input').focus(); }

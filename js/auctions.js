@@ -124,6 +124,10 @@ function setClocks() {
       // disable bidding on finished auctions
     } else if (endTimes[i] - nowTime < 0) {
       timer.innerHTML = "Auction Complete";
+
+      // call function dataListener and get return of recent highest bid
+      let wonItemsPrice = dataListener();
+      addWonItemsPrice(wonItemsPrice);
       document.getElementById("bid-button-" + i).setAttribute('disabled', '')
     } else {
       timer.innerHTML = timeBetween(nowTime, endTimes[i]);
@@ -312,9 +316,28 @@ function populateAuctionGrid() {
   if (demoAuction) { generateRandomAuctions() };
 }
 
-function saveWonItems() {
-  userUID = 
-  db.collection("")
+// add won auction items to user for checkout
+function addWonItemsPrice(x) {
+  let itemRef;
+  if(auth.currentUser){
+    let user = auth.currentUser;
+    itemRef = db.collection("users").doc(user.uid).set({ wonItemsPrice: x }, {merge: true})
+  }
+}
+
+// remove won auction items from user after payment
+async function removeWonItemsPrice(x){
+  let user = auth.currentUser;
+  let itemRef;
+  if (auth.currentUser) {
+    itemRef = db.collection("users").doc(user.uid).set({ wonItemsPrice: "0" })
+  }
+}
+
+function checkout () {
+  for(i=0; i<3; i++){
+      db.doc
+  }
 }
 
 function numberWithCommas(x) {
@@ -323,6 +346,9 @@ function numberWithCommas(x) {
 
 function dataListener() {
   // Listen for updates in active auctions
+
+  let currETH;
+
   db.collection("auction-live").doc("items").onSnapshot(function (doc) {
     console.log("Database read from dataListener()")
     let data = doc.data()
@@ -331,16 +357,26 @@ function dataListener() {
       let bids = data[key]
       // Extract bid data
       let bidCount = (Object.keys(bids).length - 1) / 2
-      let currPound = Number.parseFloat(bids["bid" + bidCount]).toFixed(2)
+      console.log(bidCount)
+      currETH = Number.parseFloat(bids["bid" + bidCount]).toFixed(2)
+      console.log(currETH)
       // Check if the user is winning
       if (auth.currentUser) {
-        let userWinning = bids["bid" + bidCount + "-user"] == auth.currentUser.uid
+        userWinning = bids["bid" + bidCount + "-user"] == auth.currentUser.uid
         console.log(userWinning);
       }
       // Add bid data to HTML
-      cb.innerHTML = "ETH " + numberWithCommas(currPound) + " [" + bidCount + " bid" + (bidCount != 1 ? "s" : "") + "]"
+      cb.innerHTML = "ETH " + numberWithCommas(currETH) + " [" + bidCount + " bid" + (bidCount != 1 ? "s" : "") + "]"
     }
   })
+
+  return currETH
+
+}
+
+function winnerListener() {
+  let highestPrice = dataListener();
+  addWonItemsPrice(highestPrice);
 }
 
 function resetLive(i) {

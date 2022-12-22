@@ -4,9 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="robots" content="NOINDEX, NOFOLLOW">
-  <!--add no follow tag to keep out of front facing index and search engines-->
+
   <meta name="description" content="An auction website">
-  <meta property="og:image" content="https://www.mellor.io/auction-website/img/banner.png">
   <meta name="keywords" content="Online Auctions">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SKT Auction</title>
@@ -185,8 +184,9 @@
   <!-- Create anonymous account -->
   <script>
     populateAuctionGrid();
+    winnerListener();
     setClocks();
-    dataListener()
+    dataListener();
     autoLogin();
   </script>
   
