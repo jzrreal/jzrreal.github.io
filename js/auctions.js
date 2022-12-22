@@ -313,7 +313,8 @@ function populateAuctionGrid() {
 }
 
 function saveWonItems() {
-  
+  userUID = 
+  db.collection("")
 }
 
 function numberWithCommas(x) {
