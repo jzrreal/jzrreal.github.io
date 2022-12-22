@@ -1,5 +1,9 @@
-function checkout () {
-    for(i=0; i<3; i++){
-        
-    }
+
+
+function checkout() {
+    connectMetamask();
+}
+
+function connectMetamask() {
+    ethereum.request({ method: "eth_requestAccounts" })
 }
